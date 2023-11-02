@@ -85,7 +85,3 @@ MIT Licensed. See [LICENSE](https://github.com/cloudnationhq/terraform-azure-law
 - [Documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview)
 - [Rest Api](https://learn.microsoft.com/en-us/rest/api/loganalytics/)
 - [Rest Api Specs](https://github.com/Azure/azure-rest-api-specs/tree/1f449b5a17448f05ce1cd914f8ed75a0b568d130/specification/operationalinsights/resource-manager)
-
-## Usage
-
-## Usage
