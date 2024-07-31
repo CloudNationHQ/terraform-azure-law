@@ -16,6 +16,6 @@ law = object({
 })
 ```
 
-## Note
+## Notes
 
 Export rules can also be used as a submodule if there is an existing Log Analytics workspace.
