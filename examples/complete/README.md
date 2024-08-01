@@ -25,4 +25,4 @@ law = object({
 
 When setting the identity type to UserAssigned, the module will generate a user-assigned identity automatically.
 
-However, if you specify identities under the identity_ids property, the module will skip generating one, and your specified identities will be used instead.
+However, if you specify identities under the identity_ids property, the module will skip the generating one, and your specified identities will be used instead.
