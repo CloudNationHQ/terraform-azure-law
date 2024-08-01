@@ -27,6 +27,7 @@ End-to-end testing is not conducted on these modules, as they are individual com
 - Offers support for multiple solutions, facilitating seamless integration of various monitoring and analytics capabilities.
 - Utilization of terratest for robust validation.
 - Supports multiple data export rules to streamline data management.
+- Ability to generate a user assigned identity or bring your own if specified.
 
 ## Requirements
 
