@@ -29,6 +29,7 @@ End-to-end testing is not conducted on these modules, as they are individual com
 - Supports multiple data export rules to streamline data management.
 - Ability to generate a user assigned identity or bring your own if specified.
 - Enables linking with an automation account.
+- Supports linking multiple storage accounts with different data source types.
 
 ## Requirements
 
