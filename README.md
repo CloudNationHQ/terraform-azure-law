@@ -76,7 +76,9 @@ End-to-end testing is not conducted on these modules, as they are individual com
 
 | Name | Description |
 | :-- | :-- |
-| `law` | contains all log analytics workspaces |
+| `workspace` | contains all log analytics workspaces settings |
+| `subscriptionId` | contains the current subscription id |
+| `solutions` | contains log analytics solutions |
 
 ## Testing
 
