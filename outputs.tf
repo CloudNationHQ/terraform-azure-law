@@ -10,5 +10,5 @@ output "subscriptionId" {
 
 output "solutions" {
   description = "contains log analytics solutions"
-  value = azurerm_log_analytics_solution.solutions
+  value       = azurerm_log_analytics_solution.solutions
 }
