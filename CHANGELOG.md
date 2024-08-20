@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v1.0.0...v1.1.0) (2024-08-20)
+
+
+### Features
+
+* add support for tables ([#68](https://github.com/CloudNationHQ/terraform-azure-law/issues/68)) ([c4ff3e1](https://github.com/CloudNationHQ/terraform-azure-law/commit/c4ff3e1cc98bc53e043709d552492edd4a00ac77))
+
 ## [1.0.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v0.12.0...v1.0.0) (2024-08-14)
 
 
