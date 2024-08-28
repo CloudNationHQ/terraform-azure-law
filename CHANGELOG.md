@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v1.1.0...v1.2.0) (2024-08-28)
+
+
+### Features
+
+* add question template and update documentation ([#72](https://github.com/CloudNationHQ/terraform-azure-law/issues/72)) ([94f1600](https://github.com/CloudNationHQ/terraform-azure-law/commit/94f1600e10ed0ec5550d8039ade2e5d8bdd77d22))
+* update documentation ([#70](https://github.com/CloudNationHQ/terraform-azure-law/issues/70)) ([bf32dba](https://github.com/CloudNationHQ/terraform-azure-law/commit/bf32dba9bd69cff99d0f50d464bacea5b8a2320c))
+
 ## [1.1.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v1.0.0...v1.1.0) (2024-08-20)
 
 
