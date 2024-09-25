@@ -17,7 +17,7 @@ resource "azurerm_log_analytics_workspace" "ws" {
   data_collection_rule_id                 = try(var.workspace.data_collection_rule_id, null)
   local_authentication_disabled           = try(var.workspace.local_authentication_disabled, false)
   immediate_data_purge_on_30_days_enabled = try(var.workspace.immediate_data_purge_on_30_days_enabled, false)
-  tags                                    = try(var.workspace.tags, {})
+  tags                                    = try(var.workspace.tags, var.tags)
 
   dynamic "identity" {
     for_each = lookup(var.workspace, "identity", null) != null ? [lookup(var.workspace, "identity", {})] : []
@@ -42,7 +42,7 @@ resource "azurerm_log_analytics_solution" "solutions" {
   resource_group_name   = each.value.resource_group
   workspace_resource_id = each.value.workspace_id
   workspace_name        = each.value.workspace_name
-  tags                  = each.value.tags
+  tags                  = try(each.value.tags, var.tags)
 
   plan {
     publisher = each.value.publisher
@@ -85,7 +85,7 @@ resource "azurerm_user_assigned_identity" "identity" {
   name                = lookup(each.value, "name", "uai-${var.workspace.name}")
   location            = coalesce(lookup(each.value, "location", null), var.workspace.location)
   resource_group_name = coalesce(lookup(each.value, "resource_group", null), var.workspace.resource_group)
-  tags                = try(var.workspace.tags, var.tags, null)
+  tags                = try(var.workspace.tags, var.tags)
 }
 
 # linked services, applicable for automation accounts only

@@ -38,7 +38,7 @@ module "analytics" {
     resource_group = module.rg.groups.demo.name
 
     linked_service = {
-      read_access_id = module.automation.account.id
+      read_access_id = module.automation.config.id
     }
   }
 }
