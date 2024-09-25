@@ -5,11 +5,15 @@
 
 ### ⚠ BREAKING CHANGES
 
-* * Version 4 of the azurerm provider includes breaking changes.
+* Version 4 of the azurerm provider includes breaking changes.
 
 ### Features
 
 * upgrade azurerm provider to v4 ([#74](https://github.com/CloudNationHQ/terraform-azure-law/issues/74)) ([bfb9950](https://github.com/CloudNationHQ/terraform-azure-law/commit/bfb995066519b342afb5ac704e8acb874aeb0d11))
+
+### Upgrade from v1.2.0 to v2.0.0:
+
+- Update module reference to: `version = "~> 2.0"`
 
 ## [1.2.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v1.1.0...v1.2.0) (2024-08-28)
 
