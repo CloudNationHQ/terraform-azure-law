@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/CloudNationHQ/terraform-azure-law/compare/v2.0.0...v2.0.1) (2024-09-25)
+
+
+### Bug Fixes
+
+* global tags and updated examples ([#76](https://github.com/CloudNationHQ/terraform-azure-law/issues/76)) ([5a2b8b1](https://github.com/CloudNationHQ/terraform-azure-law/commit/5a2b8b16f2c7392c0d25f29f3b91563ce650109f))
+
 ## [2.0.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v1.2.0...v2.0.0) (2024-09-25)
 
 
