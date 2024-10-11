@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v2.0.1...v2.1.0) (2024-10-11)
+
+
+### Features
+
+* auto generated docs and refine makefile ([#79](https://github.com/CloudNationHQ/terraform-azure-law/issues/79)) ([fb43171](https://github.com/CloudNationHQ/terraform-azure-law/commit/fb431715dc287ce2749c76925e3b18bf350e8f45))
+* **deps:** bump github.com/gruntwork-io/terratest in /tests ([#78](https://github.com/CloudNationHQ/terraform-azure-law/issues/78)) ([2c79ee1](https://github.com/CloudNationHQ/terraform-azure-law/commit/2c79ee1affde50dd77b8b1acc39b2ccf0f97a09c))
+
 ## [2.0.1](https://github.com/CloudNationHQ/terraform-azure-law/compare/v2.0.0...v2.0.1) (2024-09-25)
 
 
