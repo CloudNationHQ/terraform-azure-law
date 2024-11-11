@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v2.1.0...v2.2.0) (2024-11-11)
+
+
+### Features
+
+* enhance testing with sequential, parallel modes and flags for exceptions and skip-destroy ([#81](https://github.com/CloudNationHQ/terraform-azure-law/issues/81)) ([c0ea947](https://github.com/CloudNationHQ/terraform-azure-law/commit/c0ea9479b0a336f61133ff89b7802a2d09979495))
+
 ## [2.1.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v2.0.1...v2.1.0) (2024-10-11)
 
 
