@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.3.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v2.2.1...v2.3.0) (2025-01-20)
+
+
+### Features
+
+* **deps:** bump github.com/gruntwork-io/terratest in /tests ([#86](https://github.com/CloudNationHQ/terraform-azure-law/issues/86)) ([0fb5103](https://github.com/CloudNationHQ/terraform-azure-law/commit/0fb5103cdd3585a9d7fddcfb48e28ee1355b4cbd))
+* **deps:** bump golang.org/x/crypto from 0.29.0 to 0.31.0 in /tests ([#89](https://github.com/CloudNationHQ/terraform-azure-law/issues/89)) ([7a96e38](https://github.com/CloudNationHQ/terraform-azure-law/commit/7a96e38aad1568fcf74fd5127dd09210f5499c93))
+* **deps:** bump golang.org/x/net from 0.31.0 to 0.33.0 in /tests ([#90](https://github.com/CloudNationHQ/terraform-azure-law/issues/90)) ([1a6551e](https://github.com/CloudNationHQ/terraform-azure-law/commit/1a6551ed42cc0b512741c6fdc1c8ebfe5c43b674))
+* remove temporary files when deployment tests fails ([#87](https://github.com/CloudNationHQ/terraform-azure-law/issues/87)) ([1ea6651](https://github.com/CloudNationHQ/terraform-azure-law/commit/1ea66511d7775988ce8f20458bb446f891d20ad3))
+
 ## [2.2.1](https://github.com/CloudNationHQ/terraform-azure-law/compare/v2.2.0...v2.2.1) (2024-11-13)
 
 
