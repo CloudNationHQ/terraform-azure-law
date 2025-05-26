@@ -1,6 +1,6 @@
 module "naming" {
   source  = "cloudnationhq/naming/azure"
-  version = "~> 0.1"
+  version = "~> 0.24"
 
   suffix = ["law", "storage"]
 }
@@ -19,34 +19,34 @@ module "rg" {
 
 module "storage1" {
   source  = "cloudnationhq/sa/azure"
-  version = "~> 2.0"
+  version = "~> 4.0"
 
   storage = {
-    name           = "stdemodev1"
-    location       = module.rg.groups.demo.location
-    resource_group = module.rg.groups.demo.name
+    name                = "stdemodev1"
+    location            = module.rg.groups.demo.location
+    resource_group_name = module.rg.groups.demo.name
   }
 }
 
 module "storage2" {
   source  = "cloudnationhq/sa/azure"
-  version = "~> 2.0"
+  version = "~> 4.0"
 
   storage = {
-    name           = "stdemodev2"
-    location       = module.rg.groups.demo.location
-    resource_group = module.rg.groups.demo.name
+    name                = "stdemodev2"
+    location            = module.rg.groups.demo.location
+    resource_group_name = module.rg.groups.demo.name
   }
 }
 
 module "analytics" {
   source  = "cloudnationhq/law/azure"
-  version = "~> 2.0"
+  version = "~> 3.0"
 
   workspace = {
-    name           = module.naming.log_analytics_workspace.name_unique
-    location       = module.rg.groups.demo.location
-    resource_group = module.rg.groups.demo.name
+    name                = module.naming.log_analytics_workspace.name_unique
+    location            = module.rg.groups.demo.location
+    resource_group_name = module.rg.groups.demo.name
 
     linked_storage = {
       customlogs = {
