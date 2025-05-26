@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v2.3.0...v3.0.0) (2025-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* The data structure changed, causing a recreate on existing resources.
+
+### Features
+
+* small refactor ([#96](https://github.com/CloudNationHQ/terraform-azure-law/issues/96)) ([9cd1015](https://github.com/CloudNationHQ/terraform-azure-law/commit/9cd1015ec7d8d72d386882dca053136a12552736))
+
 ## [2.3.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v2.2.1...v2.3.0) (2025-01-20)
 
 
