@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.0.0...v3.1.0) (2025-05-28)
+
+
+### Features
+
+* update documentation ([#98](https://github.com/CloudNationHQ/terraform-azure-law/issues/98)) ([1a7c1ef](https://github.com/CloudNationHQ/terraform-azure-law/commit/1a7c1ef5237dab8d8e533c4550eabcdfb6969256))
+
 ## [3.0.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v2.3.0...v3.0.0) (2025-05-26)
 
 
