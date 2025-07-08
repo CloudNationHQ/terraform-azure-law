@@ -70,7 +70,7 @@ object({
     allow_resource_only_permissions         = optional(bool, true)
     cmk_for_query_forced                    = optional(bool, false)
     data_collection_rule_id                 = optional(string, null)
-    local_authentication_disabled           = optional(bool, false)
+    local_authentication_enabled            = optional(bool, true)
     immediate_data_purge_on_30_days_enabled = optional(bool, false)
     tags                                    = optional(map(string))
     identity = optional(object({
