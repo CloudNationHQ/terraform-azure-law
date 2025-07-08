@@ -22,7 +22,7 @@ resource "azurerm_log_analytics_workspace" "ws" {
   allow_resource_only_permissions         = var.workspace.allow_resource_only_permissions
   cmk_for_query_forced                    = var.workspace.cmk_for_query_forced
   data_collection_rule_id                 = var.workspace.data_collection_rule_id
-  local_authentication_disabled           = var.workspace.local_authentication_disabled
+  local_authentication_enabled            = var.workspace.local_authentication_enabled
   immediate_data_purge_on_30_days_enabled = var.workspace.immediate_data_purge_on_30_days_enabled
 
   tags = coalesce(
