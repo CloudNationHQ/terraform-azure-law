@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.1.0...v3.2.0) (2025-07-08)
+
+
+### Features
+
+* replace deprecated properties ([#101](https://github.com/CloudNationHQ/terraform-azure-law/issues/101)) ([d9fb593](https://github.com/CloudNationHQ/terraform-azure-law/commit/d9fb593fa7287cf0c694dce61449f43c2b51d27b))
+
 ## [3.1.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.0.0...v3.1.0) (2025-05-28)
 
 
