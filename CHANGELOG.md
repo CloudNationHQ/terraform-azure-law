@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.2.1](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.2.0...v3.2.1) (2025-09-09)
+
+
+### Bug Fixes
+
+* update workspace id property in linked storage account resource ([081f516](https://github.com/CloudNationHQ/terraform-azure-law/commit/081f5166060852cea468ee6d854000c323b24147))
+* update workspace id property in linked storage account resource ([96179d5](https://github.com/CloudNationHQ/terraform-azure-law/commit/96179d58732e00fdd6ff7b94400d5c7dca3f6880))
+
 ## [3.2.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.1.0...v3.2.0) (2025-07-08)
 
 
