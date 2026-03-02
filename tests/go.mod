@@ -5,7 +5,7 @@ go 1.24.2
 toolchain go1.24.3
 
 require (
-	github.com/cloudnationhq/az-cn-go-validor v1.17.0
+	github.com/cloudnationhq/az-cn-go-validor v1.17.1
 	github.com/gruntwork-io/terratest v0.54.0 // indirect
 )
 
