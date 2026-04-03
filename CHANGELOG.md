@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.4.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.3.0...v3.4.0) (2026-04-03)
+
+
+### Features
+
+* add missing outputs ([#127](https://github.com/CloudNationHQ/terraform-azure-law/issues/127)) ([ffcfe89](https://github.com/CloudNationHQ/terraform-azure-law/commit/ffcfe896387e99712e916e6887d524ffe797d2a8))
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#125](https://github.com/CloudNationHQ/terraform-azure-law/issues/125)) ([08fd00b](https://github.com/CloudNationHQ/terraform-azure-law/commit/08fd00b996376ff30f09b3b8e90fc650e699f26e))
+
 ## [3.3.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.2.1...v3.3.0) (2026-02-23)
 
 
