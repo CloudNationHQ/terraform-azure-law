@@ -154,9 +154,25 @@ Default: `{}`
 
 The following outputs are exported:
 
+### <a name="output_export_rules"></a> [export\_rules](#output\_export\_rules)
+
+Description: contains log analytics data export rules
+
+### <a name="output_linked_service"></a> [linked\_service](#output\_linked\_service)
+
+Description: contains log analytics linked service
+
+### <a name="output_linked_storage"></a> [linked\_storage](#output\_linked\_storage)
+
+Description: contains log analytics linked storage accounts
+
 ### <a name="output_solutions"></a> [solutions](#output\_solutions)
 
 Description: contains log analytics solutions
+
+### <a name="output_tables"></a> [tables](#output\_tables)
+
+Description: contains log analytics workspace tables
 
 ### <a name="output_workspace"></a> [workspace](#output\_workspace)
 
