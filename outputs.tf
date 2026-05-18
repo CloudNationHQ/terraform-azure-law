@@ -13,6 +13,11 @@ output "tables" {
   value       = azurerm_log_analytics_workspace_table.tables
 }
 
+output "custom_tables" {
+  description = "contains log analytics workspace custom tables created via azapi"
+  value       = azapi_resource.custom_tables
+}
+
 output "export_rules" {
   description = "contains log analytics data export rules"
   value       = azurerm_log_analytics_data_export_rule.rule

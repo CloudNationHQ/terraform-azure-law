@@ -27,11 +27,15 @@ The following requirements are needed by this module:
 
 - <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (~> 1.0)
 
+- <a name="requirement_azapi"></a> [azapi](#requirement\_azapi) (~> 2.0)
+
 - <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 4.0)
 
 ## Providers
 
 The following providers are used by this module:
+
+- <a name="provider_azapi"></a> [azapi](#provider\_azapi) (~> 2.0)
 
 - <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (~> 4.0)
 
@@ -39,6 +43,7 @@ The following providers are used by this module:
 
 The following resources are used by this module:
 
+- [azapi_resource.custom_tables](https://registry.terraform.io/providers/azure/azapi/latest/docs/resources/resource) (resource)
 - [azurerm_log_analytics_data_export_rule.rule](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_data_export_rule) (resource)
 - [azurerm_log_analytics_linked_service.link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_linked_service) (resource)
 - [azurerm_log_analytics_linked_storage_account.link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_linked_storage_account) (resource)
@@ -93,6 +98,15 @@ object({
       plan                    = optional(string, "Analytics")
       total_retention_in_days = optional(number, 30)
       retention_in_days       = optional(number, 30)
+    })), {})
+    custom_tables = optional(map(object({
+      name                    = optional(string, null)
+      retention_in_days       = optional(number, null)
+      total_retention_in_days = optional(number, null)
+      columns = list(object({
+        name = string
+        type = string
+      }))
     })), {})
     export_rules = optional(map(object({
       name                    = optional(string, null)
@@ -153,6 +167,10 @@ Default: `{}`
 ## Outputs
 
 The following outputs are exported:
+
+### <a name="output_custom_tables"></a> [custom\_tables](#output\_custom\_tables)
+
+Description: contains log analytics workspace custom tables created via azapi
 
 ### <a name="output_export_rules"></a> [export\_rules](#output\_export\_rules)
 

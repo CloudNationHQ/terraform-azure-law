@@ -37,6 +37,15 @@ variable "workspace" {
       total_retention_in_days = optional(number, 30)
       retention_in_days       = optional(number, 30)
     })), {})
+    custom_tables = optional(map(object({
+      name                    = optional(string, null)
+      retention_in_days       = optional(number, null)
+      total_retention_in_days = optional(number, null)
+      columns = list(object({
+        name = string
+        type = string
+      }))
+    })), {})
     export_rules = optional(map(object({
       name                    = optional(string, null)
       resource_group_name     = optional(string, null)

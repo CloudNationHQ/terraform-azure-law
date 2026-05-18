@@ -96,6 +96,36 @@ resource "azurerm_log_analytics_workspace_table" "tables" {
   retention_in_days       = each.value.plan == "Basic" ? null : 30
 }
 
+# custom tables
+resource "azapi_resource" "custom_tables" {
+  for_each = try(
+    var.workspace.custom_tables, {}
+  )
+
+  type      = "Microsoft.OperationalInsights/workspaces/tables@2022-10-01"
+  parent_id = azurerm_log_analytics_workspace.ws.id
+
+  name = coalesce(
+    each.value.name, each.key
+  )
+
+  body = {
+    properties = {
+      schema = {
+        name = coalesce(
+          each.value.name, each.key
+        )
+        columns = each.value.columns
+      }
+      retentionInDays      = each.value.retention_in_days
+      totalRetentionInDays = each.value.total_retention_in_days
+    }
+  }
+
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+}
+
 # data export rules
 resource "azurerm_log_analytics_data_export_rule" "rule" {
   for_each = length(lookup(var.workspace, "export_rules", {})) > 0 ? lookup(var.workspace, "export_rules", {}) : {}
