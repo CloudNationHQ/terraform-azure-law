@@ -50,9 +50,10 @@ variable "workspace" {
       write_access_id     = optional(string, null)
     }), null)
     linked_storage = optional(map(object({
-      data_source_type    = string
-      resource_group_name = optional(string, null)
-      storage_account_ids = list(string)
+      data_source_type      = string
+      resource_group_name   = optional(string, null)
+      storage_account_ids   = list(string)
+      workspace_resource_id = optional(string, null)
     })), {})
   })
   validation {

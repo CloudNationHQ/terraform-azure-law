@@ -144,7 +144,8 @@ resource "azurerm_log_analytics_linked_storage_account" "link" {
   )
 
 
-  data_source_type    = each.value.data_source_type
-  workspace_id        = azurerm_log_analytics_workspace.ws.id
-  storage_account_ids = each.value.storage_account_ids
+  data_source_type      = each.value.data_source_type
+  workspace_id          = azurerm_log_analytics_workspace.ws.id
+  storage_account_ids   = each.value.storage_account_ids
+  workspace_resource_id = each.value.workspace_resource_id
 }
