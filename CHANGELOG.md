@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.4.0...v3.5.0) (2026-05-18)
+
+
+### Features
+
+* add workspace_resource_id to linked_storage ([#130](https://github.com/CloudNationHQ/terraform-azure-law/issues/130)) ([18e06ea](https://github.com/CloudNationHQ/terraform-azure-law/commit/18e06ea6958b7d5ec7014a85e9231a5f5b87ccd8))
+
 ## [3.4.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.3.0...v3.4.0) (2026-04-03)
 
 
