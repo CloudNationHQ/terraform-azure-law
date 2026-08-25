@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.0.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.5.0...v4.0.0) (2026-08-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* azurerm v5 upgrade and module standards ([#135](https://github.com/CloudNationHQ/terraform-azure-law/issues/135))
+
+### Features
+
+* azurerm v5 upgrade and module standards ([#135](https://github.com/CloudNationHQ/terraform-azure-law/issues/135)) ([c782003](https://github.com/CloudNationHQ/terraform-azure-law/commit/c7820039cb3fd4770c0547698968f7b41460ce95))
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#128](https://github.com/CloudNationHQ/terraform-azure-law/issues/128)) ([0c69248](https://github.com/CloudNationHQ/terraform-azure-law/commit/0c6924878e16fbb2941d3006cc40f988cc3a5c8b))
+* **deps:** bump golang.org/x/crypto from 0.45.0 to 0.52.0 in /tests ([#132](https://github.com/CloudNationHQ/terraform-azure-law/issues/132)) ([b0a28b9](https://github.com/CloudNationHQ/terraform-azure-law/commit/b0a28b9c5d089130168c1044729b30e2c3abf5c8))
+
 ## [3.5.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.4.0...v3.5.0) (2026-05-18)
 
 
