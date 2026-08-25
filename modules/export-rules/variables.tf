@@ -1,12 +1,12 @@
 variable "export_rules" {
   description = "contains all log analytics data export rules"
   type = map(object({
-    name                    = optional(string, null)
-    resource_group_name     = optional(string, null)
+    name                    = optional(string)
+    resource_group_name     = optional(string)
     workspace_id            = string
     destination_resource_id = string
     table_names             = list(string)
-    enabled                 = optional(bool, true)
+    enabled                 = optional(bool)
   }))
   default = {}
 }
