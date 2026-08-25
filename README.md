@@ -27,24 +27,24 @@ The following requirements are needed by this module:
 
 - <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (~> 1.0)
 
-- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 4.0)
+- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 5.0)
 
 ## Providers
 
 The following providers are used by this module:
 
-- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (~> 4.0)
+- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (~> 5.0)
 
 ## Resources
 
 The following resources are used by this module:
 
-- [azurerm_log_analytics_data_export_rule.rule](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_data_export_rule) (resource)
-- [azurerm_log_analytics_linked_service.link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_linked_service) (resource)
-- [azurerm_log_analytics_linked_storage_account.link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_linked_storage_account) (resource)
-- [azurerm_log_analytics_solution.solutions](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) (resource)
-- [azurerm_log_analytics_workspace.ws](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) (resource)
-- [azurerm_log_analytics_workspace_table.tables](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace_table) (resource)
+- [azurerm_log_analytics_data_export_rule.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_data_export_rule) (resource)
+- [azurerm_log_analytics_linked_service.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_linked_service) (resource)
+- [azurerm_log_analytics_linked_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_linked_storage_account) (resource)
+- [azurerm_log_analytics_solution.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) (resource)
+- [azurerm_log_analytics_workspace.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) (resource)
+- [azurerm_log_analytics_workspace_table.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace_table) (resource)
 
 ## Required Inputs
 
@@ -59,58 +59,57 @@ Type:
 ```hcl
 object({
     name                                    = string
-    resource_group_name                     = optional(string, null)
-    location                                = optional(string, null)
-    sku                                     = optional(string, "PerGB2018")
-    daily_quota_gb                          = optional(number, null)
-    internet_ingestion_enabled              = optional(bool, true)
-    internet_query_enabled                  = optional(bool, true)
-    retention                               = optional(number, 30)
-    reservation_capacity_in_gb_per_day      = optional(number, null)
-    allow_resource_only_permissions         = optional(bool, true)
-    cmk_for_query_forced                    = optional(bool, false)
-    data_collection_rule_id                 = optional(string, null)
-    local_authentication_enabled            = optional(bool, true)
-    immediate_data_purge_on_30_days_enabled = optional(bool, false)
+    resource_group_name                     = optional(string)
+    location                                = optional(string)
+    sku                                     = optional(string)
+    daily_quota_gb                          = optional(number)
+    internet_ingestion_access_type          = optional(string)
+    internet_query_access_type              = optional(string)
+    retention                               = optional(number)
+    reservation_capacity_in_gb_per_day      = optional(number)
+    allow_resource_only_permissions         = optional(bool)
+    cmk_for_query_forced                    = optional(bool)
+    data_collection_rule_id                 = optional(string)
+    local_authentication_enabled            = optional(bool)
+    immediate_data_purge_on_30_days_enabled = optional(bool)
     tags                                    = optional(map(string))
     identity = optional(object({
       type         = string
-      identity_ids = optional(list(string), null)
-    }), null)
+      identity_ids = optional(list(string))
+    }))
     solutions = optional(map(object({
-      name                = optional(string, null)
-      location            = optional(string, null)
-      resource_group_name = optional(string, null)
+      name                = optional(string)
+      location            = optional(string)
+      resource_group_name = optional(string)
       tags                = optional(map(string))
       plan = optional(object({
-        publisher      = optional(string, "Microsoft")
-        promotion_code = optional(string, null)
-        product        = optional(string, null)
+        publisher      = optional(string)
+        promotion_code = optional(string)
+        product        = optional(string)
       }), {}),
     })), {})
     tables = optional(map(object({
-      name                    = optional(string, null)
-      plan                    = optional(string, "Analytics")
-      total_retention_in_days = optional(number, 30)
-      retention_in_days       = optional(number, 30)
+      name                    = optional(string)
+      plan                    = optional(string)
+      total_retention_in_days = optional(number)
+      retention_in_days       = optional(number)
     })), {})
     export_rules = optional(map(object({
-      name                    = optional(string, null)
-      resource_group_name     = optional(string, null)
+      name                    = optional(string)
+      resource_group_name     = optional(string)
       destination_resource_id = string
       table_names             = list(string)
-      enabled                 = optional(bool, true)
+      enabled                 = optional(bool)
     })), {})
     linked_service = optional(object({
-      resource_group_name = optional(string, null)
-      read_access_id      = optional(string, null)
-      write_access_id     = optional(string, null)
-    }), null)
+      resource_group_name = optional(string)
+      read_access_id      = optional(string)
+      write_access_id     = optional(string)
+    }))
     linked_storage = optional(map(object({
-      data_source_type      = string
-      resource_group_name   = optional(string, null)
-      storage_account_ids   = list(string)
-      workspace_resource_id = optional(string, null)
+      data_source_type    = string
+      resource_group_name = optional(string)
+      storage_account_ids = list(string)
     })), {})
   })
 ```
@@ -126,14 +125,6 @@ Description: default azure region to be used.
 Type: `string`
 
 Default: `null`
-
-### <a name="input_naming"></a> [naming](#input\_naming)
-
-Description: contains naming convention
-
-Type: `map(string)`
-
-Default: `{}`
 
 ### <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name)
 

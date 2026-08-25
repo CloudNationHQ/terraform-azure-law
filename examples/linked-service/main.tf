@@ -7,7 +7,7 @@ module "naming" {
 
 module "rg" {
   source  = "cloudnationhq/rg/azure"
-  version = "~> 2.0"
+  version = "~> 3.0"
 
   groups = {
     demo = {
@@ -19,18 +19,18 @@ module "rg" {
 
 module "automation" {
   source  = "cloudnationhq/aa/azure"
-  version = "~> 2.0"
+  version = "~> 4.0"
 
-  config = {
-    name           = module.naming.automation_account.name
-    resource_group = module.rg.groups.demo.name
-    location       = module.rg.groups.demo.location
+  account = {
+    name                = module.naming.automation_account.name
+    resource_group_name = module.rg.groups.demo.name
+    location            = module.rg.groups.demo.location
   }
 }
 
 module "analytics" {
   source  = "cloudnationhq/law/azure"
-  version = "~> 3.0"
+  version = "~> 4.0"
 
   workspace = {
     name                = module.naming.log_analytics_workspace.name_unique
@@ -38,7 +38,7 @@ module "analytics" {
     resource_group_name = module.rg.groups.demo.name
 
     linked_service = {
-      read_access_id = module.automation.config.id
+      read_access_id = module.automation.account.id
     }
   }
 }
