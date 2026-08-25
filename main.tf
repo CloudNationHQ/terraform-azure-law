@@ -1,22 +1,14 @@
-# workspaces
-resource "azurerm_log_analytics_workspace" "ws" {
+# workspace
+resource "azurerm_log_analytics_workspace" "this" {
+  name                = var.workspace.name
+  resource_group_name = coalesce(var.workspace.resource_group_name, var.resource_group_name)
+  location            = coalesce(var.workspace.location, var.location)
+  tags                = coalesce(var.workspace.tags, var.tags)
 
-  resource_group_name = coalesce(
-    lookup(
-      var.workspace, "resource_group_name", null
-    ), var.resource_group_name
-  )
-
-  location = coalesce(
-    lookup(var.workspace, "location", null
-    ), var.location
-  )
-
-  name                                    = var.workspace.name
   sku                                     = var.workspace.sku
   daily_quota_gb                          = var.workspace.daily_quota_gb
-  internet_ingestion_enabled              = var.workspace.internet_ingestion_enabled
-  internet_query_enabled                  = var.workspace.internet_query_enabled
+  internet_ingestion_access_type          = var.workspace.internet_ingestion_access_type
+  internet_query_access_type              = var.workspace.internet_query_access_type
   retention_in_days                       = var.workspace.retention
   reservation_capacity_in_gb_per_day      = var.workspace.reservation_capacity_in_gb_per_day
   allow_resource_only_permissions         = var.workspace.allow_resource_only_permissions
@@ -25,12 +17,8 @@ resource "azurerm_log_analytics_workspace" "ws" {
   local_authentication_enabled            = var.workspace.local_authentication_enabled
   immediate_data_purge_on_30_days_enabled = var.workspace.immediate_data_purge_on_30_days_enabled
 
-  tags = coalesce(
-    var.workspace.tags, var.tags
-  )
-
   dynamic "identity" {
-    for_each = lookup(var.workspace, "identity", null) != null ? [var.workspace.identity] : []
+    for_each = var.workspace.identity != null ? { "this" = var.workspace.identity } : {}
 
     content {
       type         = identity.value.type
@@ -40,37 +28,25 @@ resource "azurerm_log_analytics_workspace" "ws" {
 }
 
 # solutions
-resource "azurerm_log_analytics_solution" "solutions" {
-  for_each = try(
-    var.workspace.solutions, {}
-  )
+resource "azurerm_log_analytics_solution" "this" {
+  for_each = var.workspace.solutions
 
-  resource_group_name = coalesce(
-    lookup(
-      var.workspace, "resource_group_name", null
-    ), var.resource_group_name
-  )
-
-  location = coalesce(
-    lookup(var.workspace, "location", null
-    ), var.location
-  )
+  resource_group_name = coalesce(var.workspace.resource_group_name, var.resource_group_name)
+  location            = coalesce(var.workspace.location, var.location)
 
   solution_name = coalesce(
-    each.value.name, try(
-      join("-", [var.naming.log_analytics_workspace, each.key]), null
-    ), each.key
+    each.value.name, each.key
   )
 
-  workspace_resource_id = azurerm_log_analytics_workspace.ws.id
-  workspace_name        = azurerm_log_analytics_workspace.ws.name
+  workspace_resource_id = azurerm_log_analytics_workspace.this.id
+  workspace_name        = azurerm_log_analytics_workspace.this.name
 
   tags = coalesce(
     each.value.tags, var.tags
   )
 
   plan {
-    publisher      = each.value.plan.publisher
+    publisher      = coalesce(each.value.plan.publisher, "Microsoft")
     promotion_code = each.value.plan.promotion_code
     product = coalesce(
       each.value.plan.product, "OMSGallery/${each.key}"
@@ -79,72 +55,53 @@ resource "azurerm_log_analytics_solution" "solutions" {
 }
 
 # tables
-resource "azurerm_log_analytics_workspace_table" "tables" {
-  for_each = try(
-    var.workspace.tables, {}
-  )
+resource "azurerm_log_analytics_workspace_table" "this" {
+  for_each = var.workspace.tables
 
   name = coalesce(
-    each.value.name, try(
-      join("-", [var.naming.log_analytics_workspace, each.key]), null
-    ), each.key
+    each.value.name, each.key
   )
 
-  workspace_id            = azurerm_log_analytics_workspace.ws.id
+  workspace_id            = azurerm_log_analytics_workspace.this.id
   plan                    = each.value.plan
   total_retention_in_days = each.value.total_retention_in_days
   retention_in_days       = each.value.plan == "Basic" ? null : 30
 }
 
 # data export rules
-resource "azurerm_log_analytics_data_export_rule" "rule" {
-  for_each = length(lookup(var.workspace, "export_rules", {})) > 0 ? lookup(var.workspace, "export_rules", {}) : {}
+resource "azurerm_log_analytics_data_export_rule" "this" {
+  for_each = var.workspace.export_rules
 
-  resource_group_name = coalesce(
-    lookup(
-      var.workspace, "resource_group_name", null
-    ), var.resource_group_name
-  )
+  resource_group_name = coalesce(var.workspace.resource_group_name, var.resource_group_name)
 
   name = coalesce(
-    each.value.name, try(
-      join("-", [var.naming.log_analytics_workspace, each.key]), null
-    ), each.key
+    each.value.name, each.key
   )
 
-  workspace_resource_id   = azurerm_log_analytics_workspace.ws.id
+  workspace_resource_id   = azurerm_log_analytics_workspace.this.id
   destination_resource_id = each.value.destination_resource_id
   table_names             = each.value.table_names
   enabled                 = each.value.enabled
 }
 
 # linked services, applicable for automation accounts only
-resource "azurerm_log_analytics_linked_service" "link" {
-  for_each = var.workspace.linked_service != null ? { "linked_service" = var.workspace.linked_service } : {}
+resource "azurerm_log_analytics_linked_service" "this" {
+  for_each = var.workspace.linked_service != null ? { "this" = var.workspace.linked_service } : {}
 
-  resource_group_name = coalesce(
-    lookup(
-      var.workspace, "resource_group_name", null
-    ), var.resource_group_name
-  )
+  resource_group_name = coalesce(var.workspace.resource_group_name, var.resource_group_name)
 
-  workspace_id    = azurerm_log_analytics_workspace.ws.id
-  read_access_id  = var.workspace.linked_service.read_access_id
-  write_access_id = var.workspace.linked_service.write_access_id
+  workspace_id    = azurerm_log_analytics_workspace.this.id
+  read_access_id  = each.value.read_access_id
+  write_access_id = each.value.write_access_id
 }
 
 # linked storage
-resource "azurerm_log_analytics_linked_storage_account" "link" {
-  for_each = lookup(var.workspace, "linked_storage", {})
+resource "azurerm_log_analytics_linked_storage_account" "this" {
+  for_each = var.workspace.linked_storage
 
-  resource_group_name = coalesce(
-    lookup(
-      var.workspace, "resource_group_name", null
-    ), var.resource_group_name
-  )
-
+  resource_group_name = coalesce(var.workspace.resource_group_name, var.resource_group_name)
 
   data_source_type    = each.value.data_source_type
-  workspace_id        = azurerm_log_analytics_workspace.ws.id
+  workspace_id        = azurerm_log_analytics_workspace.this.id
   storage_account_ids = each.value.storage_account_ids
 }
