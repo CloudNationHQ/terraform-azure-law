@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v4.0.0...v4.1.0) (2026-09-01)
+
+
+### Features
+
+* **deps:** bump golang.org/x/crypto from 0.45.0 to 0.52.0 in /tests ([#136](https://github.com/CloudNationHQ/terraform-azure-law/issues/136)) ([af5303c](https://github.com/CloudNationHQ/terraform-azure-law/commit/af5303c829dad54dc4a0e578975d1376831444bb))
+
 ## [4.0.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.5.0...v4.0.0) (2026-08-25)
 
 
