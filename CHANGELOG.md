@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.1.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v4.0.0...v4.1.0) (2026-11-05)
+
+
+### Features
+
+* **deps:** bump github.com/klauspost/compress in /tests ([#138](https://github.com/CloudNationHQ/terraform-azure-law/issues/138)) ([5bf9546](https://github.com/CloudNationHQ/terraform-azure-law/commit/5bf9546d406747245cde7c8cfb74ccd51a71c0f8))
+* **deps:** bump golang.org/x/crypto from 0.45.0 to 0.52.0 in /tests ([#136](https://github.com/CloudNationHQ/terraform-azure-law/issues/136)) ([af5303c](https://github.com/CloudNationHQ/terraform-azure-law/commit/af5303c829dad54dc4a0e578975d1376831444bb))
+
 ## [4.0.0](https://github.com/CloudNationHQ/terraform-azure-law/compare/v3.5.0...v4.0.0) (2026-08-25)
 
 
